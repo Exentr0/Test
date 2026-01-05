@@ -2,7 +2,6 @@
 import sys, tty, termios
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import TwistStamped
 
 class SimpleTeleop(Node):
     def __init__(self):
@@ -26,7 +25,7 @@ class SimpleTeleop(Node):
             elif key == 'x': msg.twist.linear.x, msg.twist.angular.z = -0.5, 0.0
             elif key == 'a': msg.twist.linear.x, msg.twist.angular.z = 0.0, 1.0
             elif key == 'd': msg.twist.linear.x, msg.twist.angular.z = 0.0, -1.0
-            elif key == 's': msg.twist.linear.x, msg.twist.angular.z = 0.0, 0.0
+            elif key == 's': msg.twist.linear.x, msg.twist.angular.z =  0.0, 0.0
             elif key in ['q', '\x03']: break
             else: continue
             msg.header.stamp = self.get_clock().now().to_msg()
